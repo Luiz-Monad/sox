@@ -1,426 +1,423 @@
-/* src/soxconfig.h.in.  Generated from configure.ac by autoheader.  */
+/* src/soxconfig.h.in.  */
+
+#if !defined sox_config_included
+#define sox_config_included
 
 /* Define if building universal (internal helper macro) */
-#undef AC_APPLE_UNIVERSAL_BUILD
+#cmakedefine AC_APPLE_UNIVERSAL_BUILD
 
 /* Distribution name */
-#undef DISTRO
+#cmakedefine DISTRO
 
 /* Define to dlopen() lame */
-#undef DL_LAME
+#cmakedefine DL_LAME
 
 /* Define to dlopen() libsndfile */
-#undef DL_LIBSNDFILE
+#cmakedefine DL_LIBSNDFILE
 
 /* Define to dlopen() mad */
-#undef DL_MAD
+#cmakedefine DL_MAD
 
 /* Define to dlopen() opencore-amrnb */
-#undef DL_OPENCORE_AMRNB
+#cmakedefine DL_OPENCORE_AMRNB
 
 /* Define to dlopen() opencore-amrwb */
-#undef DL_OPENCORE_AMRWB
+#cmakedefine DL_OPENCORE_AMRWB
 
 /* Define to dlopen() twolame */
-#undef DL_TWOLAME
+#cmakedefine DL_TWOLAME
 
 /* Define to dlopen() vo-amrwbenc */
-#undef DL_VO_AMRWBENC
+#cmakedefine DL_VO_AMRWBENC
 
 /* Define if alsa is enabled */
-#undef HAVE_ALSA
+#cmakedefine HAVE_ALSA
 
 /* Define to 1 if you have the <alsa/asoundlib.h> header file. */
-#undef HAVE_ALSA_ASOUNDLIB_H
+#cmakedefine HAVE_ALSA_ASOUNDLIB_H
 
 /* Define if amrnb is enabled */
-#undef HAVE_AMRNB
+#cmakedefine HAVE_AMRNB
 
 /* Define if amrwb is enabled */
-#undef HAVE_AMRWB
+#cmakedefine HAVE_AMRWB
 
 /* Define if ao is enabled */
-#undef HAVE_AO
+#cmakedefine HAVE_AO
 
 /* Define to 1 if you have the <ao/ao.h> header file. */
-#undef HAVE_AO_AO_H
+#cmakedefine HAVE_AO_AO_H
 
 /* Define to 1 if you have the <byteswap.h> header file. */
-#undef HAVE_BYTESWAP_H
+#cmakedefine HAVE_BYTESWAP_H
 
 /* Define if coreaudio is enabled */
-#undef HAVE_COREAUDIO
+#cmakedefine HAVE_COREAUDIO
 
 /* Define to 1 if you have the <CoreAudio/CoreAudio.h> header file. */
-#undef HAVE_COREAUDIO_COREAUDIO_H
+#cmakedefine HAVE_COREAUDIO_COREAUDIO_H
 
 /* Define to 1 if you have the <dlfcn.h> header file. */
-#undef HAVE_DLFCN_H
+#cmakedefine HAVE_DLFCN_H
 
 /* Define to 1 if you have the <fcntl.h> header file. */
-#undef HAVE_FCNTL_H
+#cmakedefine HAVE_FCNTL_H
 
 /* Define to 1 if you have the <fenv.h> header file. */
-#undef HAVE_FENV_H
+#cmakedefine HAVE_FENV_H
 
 /* Define if flac is enabled */
-#undef HAVE_FLAC
+#cmakedefine HAVE_FLAC
 
 /* Define to 1 if you have the `fmemopen' function. */
-#undef HAVE_FMEMOPEN
+#cmakedefine HAVE_FMEMOPEN
 
 /* Define to 1 if fseeko (and presumably ftello) exists and is declared. */
-#undef HAVE_FSEEKO
+#cmakedefine HAVE_FSEEKO
 
 /* Define to 1 if you have the `gettimeofday' function. */
-#undef HAVE_GETTIMEOFDAY
+#cmakedefine HAVE_GETTIMEOFDAY
 
 /* Define if glob.h exists */
-#undef HAVE_GLOB_H
+#cmakedefine HAVE_GLOB_H
 
 /* Define if gsm is enabled */
-#undef HAVE_GSM
+#cmakedefine HAVE_GSM
 
 /* Define to 1 if you have the <gsm/gsm.h> header file. */
-#undef HAVE_GSM_GSM_H
+#cmakedefine HAVE_GSM_GSM_H
 
 /* Define to 1 if you have the <gsm.h> header file. */
-#undef HAVE_GSM_H
+#cmakedefine HAVE_GSM_H
 
 /* Define if id3_file_open exists in -l$sox_wl */
-#undef HAVE_ID3TAG
+#cmakedefine HAVE_ID3TAG
 
 /* Define to 1 if you have the <id3tag.h> header file. */
-#undef HAVE_ID3TAG_H
+#cmakedefine HAVE_ID3TAG_H
 
 /* Define to 1 if you have the <inttypes.h> header file. */
-#undef HAVE_INTTYPES_H
+#cmakedefine HAVE_INTTYPES_H
 
 /* Define if LADSPA support is enabled */
-#undef HAVE_LADSPA_H
+#cmakedefine HAVE_LADSPA_H
 
 /* Define if lame_init exists in -l$sox_wl */
-#undef HAVE_LAME
+#cmakedefine HAVE_LAME
 
 /* Define to 1 if you have the <lame.h> header file. */
-#undef HAVE_LAME_H
+#cmakedefine HAVE_LAME_H
 
 /* Define to 1 if you have the <lame/lame.h> header file. */
-#undef HAVE_LAME_LAME_H
+#cmakedefine HAVE_LAME_LAME_H
 
 /* Define if snd_pcm_open exists in -lasound */
-#undef HAVE_LIBALSA
+#cmakedefine HAVE_LIBALSA
 
 /* Define if ao_play exists in -lao */
-#undef HAVE_LIBAO
+#cmakedefine HAVE_LIBAO
 
 /* Define if AudioDeviceStart exists in -Wl,-framework,CoreAudio */
-#undef HAVE_LIBCOREAUDIO
+#cmakedefine HAVE_LIBCOREAUDIO
 
 /* Define if gsm_create exists in -l$sox_wl */
-#undef HAVE_LIBGSM
+#cmakedefine HAVE_LIBGSM
 
 /* Define if create_lpc10_encoder_state exists in -llpc10 */
-#undef HAVE_LIBLPC10
+#cmakedefine HAVE_LIBLPC10
 
 /* Define if lt_dlinit exists in -l$sox_wl */
-#undef HAVE_LIBLTDL
+#cmakedefine HAVE_LIBLTDL
 
 /* Define if pa_simple_new exists in -lpulse -lpulse-simple */
-#undef HAVE_LIBPULSEAUDIO
+#cmakedefine HAVE_LIBPULSEAUDIO
 
 /* Define if sf_open_virtual exists in -l$sox_wl */
-#undef HAVE_LIBSNDFILE
+#cmakedefine HAVE_LIBSNDFILE
 
 /* Define if sio_open exists in -lsndio */
-#undef HAVE_LIBSNDIO
+#cmakedefine HAVE_LIBSNDIO
 
 /* Define if waveOutOpen exists in -lwinmm */
-#undef HAVE_LIBWAVEAUDIO
+#cmakedefine HAVE_LIBWAVEAUDIO
 
 /* Define if WavpackGetSampleRate exists in -lwavpack */
-#undef HAVE_LIBWAVPACK
+#cmakedefine HAVE_LIBWAVPACK
 
 /* Define if lpc10 is enabled */
-#undef HAVE_LPC10
+#cmakedefine HAVE_LPC10
 
 /* Define to 1 if you have the <lpc10.h> header file. */
-#undef HAVE_LPC10_H
+#cmakedefine HAVE_LPC10_H
 
 /* Define to 1 if you have the `lrint' function. */
-#undef HAVE_LRINT
+#cmakedefine HAVE_LRINT
 
 /* Define to 1 if you have the <ltdl.h> header file. */
-#undef HAVE_LTDL_H
+#cmakedefine HAVE_LTDL_H
 
 /* Define if mad_stream_buffer exists in -l$sox_wl */
-#undef HAVE_MAD
+#cmakedefine HAVE_MAD
 
 /* Define to 1 if you have the <mad.h> header file. */
-#undef HAVE_MAD_H
+#cmakedefine HAVE_MAD_H
 
 /* Define if magic_open exists in -l$sox_wl */
-#undef HAVE_MAGIC
+#cmakedefine HAVE_MAGIC
 
 /* Define to 1 if you have the <magic.h> header file. */
-#undef HAVE_MAGIC_H
+#cmakedefine HAVE_MAGIC_H
 
 /* Define to 1 if you have the `mkstemp' function. */
-#undef HAVE_MKSTEMP
+#cmakedefine HAVE_MKSTEMP
 
 /* Define to 1 if you have the <mmsystem.h> header file. */
-#undef HAVE_MMSYSTEM_H
+#cmakedefine HAVE_MMSYSTEM_H
 
 /* Define if mp3 is enabled */
-#undef HAVE_MP3
+#cmakedefine HAVE_MP3
 
 /* Define if oggvorbis is enabled */
-#undef HAVE_OGGVORBIS
+#cmakedefine HAVE_OGGVORBIS
 
 /* Define if Decoder_Interface_init exists in -l$sox_wl */
-#undef HAVE_OPENCORE_AMRNB
+#cmakedefine HAVE_OPENCORE_AMRNB
 
 /* Define to 1 if you have the <opencore-amrnb/interf_dec.h> header file. */
-#undef HAVE_OPENCORE_AMRNB_INTERF_DEC_H
+#cmakedefine HAVE_OPENCORE_AMRNB_INTERF_DEC_H
 
 /* Define if D_IF_init exists in -l$sox_wl */
-#undef HAVE_OPENCORE_AMRWB
+#cmakedefine HAVE_OPENCORE_AMRWB
 
 /* Define to 1 if you have the <opencore-amrwb/dec_if.h> header file. */
-#undef HAVE_OPENCORE_AMRWB_DEC_IF_H
+#cmakedefine HAVE_OPENCORE_AMRWB_DEC_IF_H
 
 /* Define if opus is enabled */
-#undef HAVE_OPUS
+#cmakedefine HAVE_OPUS
 
 /* Define if oss is enabled */
-#undef HAVE_OSS
+#cmakedefine HAVE_OSS
 
 /* Define if png_set_rows exists in -l$sox_wl $ZLIB_LIBS */
-#undef HAVE_PNG
+#cmakedefine HAVE_PNG
 
 /* Define to 1 if you have the <png.h> header file. */
-#undef HAVE_PNG_H
+#cmakedefine HAVE_PNG_H
 
 /* Define to 1 if you have the `popen' function. */
-#undef HAVE_POPEN
+#cmakedefine HAVE_POPEN
 
 /* Define if pulseaudio is enabled */
-#undef HAVE_PULSEAUDIO
+#cmakedefine HAVE_PULSEAUDIO
 
 /* Define to 1 if you have the <pulse/simple.h> header file. */
-#undef HAVE_PULSE_SIMPLE_H
+#cmakedefine HAVE_PULSE_SIMPLE_H
 
 /* Define to 1 if you have the `sigaction' function. */
-#undef HAVE_SIGACTION
+#cmakedefine HAVE_SIGACTION
 
 /* Define if sndfile is enabled */
-#undef HAVE_SNDFILE
+#cmakedefine HAVE_SNDFILE
 
 /* Define to 1 if you have the <sndfile.h> header file. */
-#undef HAVE_SNDFILE_H
+#cmakedefine HAVE_SNDFILE_H
 
 /* Define if sndio is enabled */
-#undef HAVE_SNDIO
+#cmakedefine HAVE_SNDIO
 
 /* Define to 1 if you have the <sndio.h> header file. */
-#undef HAVE_SNDIO_H
+#cmakedefine HAVE_SNDIO_H
 
 /* Define to 1 if you have the <stdint.h> header file. */
-#undef HAVE_STDINT_H
+#cmakedefine HAVE_STDINT_H
 
 /* Define to 1 if you have the <stdio.h> header file. */
-#undef HAVE_STDIO_H
+#cmakedefine HAVE_STDIO_H
 
 /* Define to 1 if you have the <stdlib.h> header file. */
-#undef HAVE_STDLIB_H
+#cmakedefine HAVE_STDLIB_H
 
 /* Define to 1 if you have the `strcasecmp' function. */
-#undef HAVE_STRCASECMP
+#cmakedefine HAVE_STRCASECMP
 
 /* Define to 1 if you have the `strdup' function. */
-#undef HAVE_STRDUP
+#cmakedefine HAVE_STRDUP
 
 /* Define to 1 if you have the <strings.h> header file. */
-#undef HAVE_STRINGS_H
+#cmakedefine HAVE_STRINGS_H
 
 /* Define to 1 if you have the <string.h> header file. */
-#undef HAVE_STRING_H
+#cmakedefine HAVE_STRING_H
 
 /* Define if sunaudio is enabled */
-#undef HAVE_SUNAUDIO
+#cmakedefine HAVE_SUNAUDIO
 
 /* Define to 1 if you have the <sun/audioio.h> header file. */
-#undef HAVE_SUN_AUDIOIO_H
+#cmakedefine HAVE_SUN_AUDIOIO_H
 
 /* Define to 1 if you have the <sys/audioio.h> header file. */
-#undef HAVE_SYS_AUDIOIO_H
+#cmakedefine HAVE_SYS_AUDIOIO_H
 
 /* Define to 1 if you have the <sys/ioctl.h> header file. */
-#undef HAVE_SYS_IOCTL_H
+#cmakedefine HAVE_SYS_IOCTL_H
 
 /* Define to 1 if you have the <sys/soundcard.h> header file. */
-#undef HAVE_SYS_SOUNDCARD_H
+#cmakedefine HAVE_SYS_SOUNDCARD_H
 
 /* Define to 1 if you have the <sys/stat.h> header file. */
-#undef HAVE_SYS_STAT_H
+#cmakedefine HAVE_SYS_STAT_H
 
 /* Define to 1 if you have the <sys/timeb.h> header file. */
-#undef HAVE_SYS_TIMEB_H
+#cmakedefine HAVE_SYS_TIMEB_H
 
 /* Define to 1 if you have the <sys/time.h> header file. */
-#undef HAVE_SYS_TIME_H
+#cmakedefine HAVE_SYS_TIME_H
 
 /* Define to 1 if you have the <sys/types.h> header file. */
-#undef HAVE_SYS_TYPES_H
+#cmakedefine HAVE_SYS_TYPES_H
 
 /* Define to 1 if you have the <sys/utsname.h> header file. */
-#undef HAVE_SYS_UTSNAME_H
+#cmakedefine HAVE_SYS_UTSNAME_H
 
 /* Define to 1 if you have the <termios.h> header file. */
-#undef HAVE_TERMIOS_H
+#cmakedefine HAVE_TERMIOS_H
 
 /* Define if twolame_init exists in -l$sox_wl */
-#undef HAVE_TWOLAME
+#cmakedefine HAVE_TWOLAME
 
 /* Define to 1 if you have the <twolame.h> header file. */
-#undef HAVE_TWOLAME_H
+#cmakedefine HAVE_TWOLAME_H
 
 /* Define to 1 if you have the <unistd.h> header file. */
-#undef HAVE_UNISTD_H
+#cmakedefine HAVE_UNISTD_H
 
 /* Define if E_IF_init exists in -l$sox_wl */
-#undef HAVE_VO_AMRWBENC
+#cmakedefine HAVE_VO_AMRWBENC
 
 /* Define to 1 if you have the <vo-amrwbenc/enc_if.h> header file. */
-#undef HAVE_VO_AMRWBENC_ENC_IF_H
+#cmakedefine HAVE_VO_AMRWBENC_ENC_IF_H
 
 /* Define to 1 if you have the `vsnprintf' function. */
-#undef HAVE_VSNPRINTF
+#cmakedefine HAVE_VSNPRINTF
 
 /* Define if waveaudio is enabled */
-#undef HAVE_WAVEAUDIO
+#cmakedefine HAVE_WAVEAUDIO
 
 /* Define if wavpack is enabled */
-#undef HAVE_WAVPACK
+#cmakedefine HAVE_WAVPACK
 
 /* Define to 1 if you have the <wavpack/wavpack.h> header file. */
-#undef HAVE_WAVPACK_WAVPACK_H
+#cmakedefine HAVE_WAVPACK_WAVPACK_H
 
 /* Define if uncompress exists in -lz */
-#undef HAVE_ZLIB
+#cmakedefine HAVE_ZLIB
 
 /* Define to 1 if you have the <zlib.h> header file. */
-#undef HAVE_ZLIB_H
+#cmakedefine HAVE_ZLIB_H
 
 /* Define to the sub-directory where libtool stores uninstalled libraries. */
-#undef LT_OBJDIR
+#cmakedefine LT_OBJDIR
 
 /* Name of package */
-#undef PACKAGE
+#cmakedefine PACKAGE
 
 /* Define to the address where bug reports for this package should be sent. */
-#undef PACKAGE_BUGREPORT
+#cmakedefine PACKAGE_BUGREPORT
 
 /* Define to the full name of this package. */
-#undef PACKAGE_NAME
+#cmakedefine PACKAGE_NAME
 
 /* Define to the full name and version of this package. */
-#undef PACKAGE_STRING
+#cmakedefine PACKAGE_STRING
 
 /* Define to the one symbol short name of this package. */
-#undef PACKAGE_TARNAME
+#cmakedefine PACKAGE_TARNAME
 
 /* Define to the home page for this package. */
-#undef PACKAGE_URL
+#cmakedefine PACKAGE_URL
 
 /* Define to the version of this package. */
-#undef PACKAGE_VERSION
+#cmakedefine PACKAGE_VERSION
 
 /* Define if alsa is linked in */
-#undef STATIC_ALSA
+#cmakedefine STATIC_ALSA
 
 /* Define if amrnb is linked in */
-#undef STATIC_AMRNB
+#cmakedefine STATIC_AMRNB
 
 /* Define if amrwb is linked in */
-#undef STATIC_AMRWB
+#cmakedefine STATIC_AMRWB
 
 /* Define if ao is linked in */
-#undef STATIC_AO
+#cmakedefine STATIC_AO
 
 /* Define if coreaudio is linked in */
-#undef STATIC_COREAUDIO
+#cmakedefine STATIC_COREAUDIO
 
 /* Define if flac is linked in */
-#undef STATIC_FLAC
+#cmakedefine STATIC_FLAC
 
 /* Define if gsm is linked in */
-#undef STATIC_GSM
+#cmakedefine STATIC_GSM
 
 /* Define if lpc10 is linked in */
-#undef STATIC_LPC10
+#cmakedefine STATIC_LPC10
 
 /* Define if mp3 is linked in */
-#undef STATIC_MP3
+#cmakedefine STATIC_MP3
 
 /* Define if oggvorbis is linked in */
-#undef STATIC_OGGVORBIS
+#cmakedefine STATIC_OGGVORBIS
 
 /* Define if opus is linked in */
-#undef STATIC_OPUS
+#cmakedefine STATIC_OPUS
 
 /* Define if oss is linked in */
-#undef STATIC_OSS
+#cmakedefine STATIC_OSS
 
 /* Define if pulseaudio is linked in */
-#undef STATIC_PULSEAUDIO
+#cmakedefine STATIC_PULSEAUDIO
 
 /* Define if sndfile is linked in */
-#undef STATIC_SNDFILE
+#cmakedefine STATIC_SNDFILE
 
 /* Define if sndio is linked in */
-#undef STATIC_SNDIO
+#cmakedefine STATIC_SNDIO
 
 /* Define if sunaudio is linked in */
-#undef STATIC_SUNAUDIO
+#cmakedefine STATIC_SUNAUDIO
 
 /* Define if waveaudio is linked in */
-#undef STATIC_WAVEAUDIO
+#cmakedefine STATIC_WAVEAUDIO
 
 /* Define if wavpack is linked in */
-#undef STATIC_WAVPACK
+#cmakedefine STATIC_WAVPACK
 
 /* Define to 1 if all of the C90 standard headers exist (not just the ones
    required in a freestanding environment). This macro is provided for
    backward compatibility; new code need not use it. */
-#undef STDC_HEADERS
+#cmakedefine STDC_HEADERS
 
 /* Version number of package */
-#undef VERSION
+#cmakedefine PROJECT_VERSION
 
 /* Define WORDS_BIGENDIAN to 1 if your processor stores words with the most
    significant byte first (like Motorola and SPARC, unlike Intel). */
-#if defined AC_APPLE_UNIVERSAL_BUILD
-# if defined __BIG_ENDIAN__
-#  define WORDS_BIGENDIAN 1
-# endif
-#else
-# ifndef WORDS_BIGENDIAN
-#  undef WORDS_BIGENDIAN
-# endif
-#endif
+#cmakedefine WORDS_BIGENDIAN
 
 /* Number of bits in a file offset, on hosts where this is settable. */
-#undef _FILE_OFFSET_BITS
+#cmakedefine _FILE_OFFSET_BITS
 
 /* Define to 1 to make fseeko visible on some hosts (e.g. glibc 2.2). */
-#undef _LARGEFILE_SOURCE
+#cmakedefine _LARGEFILE_SOURCE
 
 /* Define for large files, on AIX-style hosts. */
-#undef _LARGE_FILES
+#cmakedefine _LARGE_FILES
 
 /* Define to `__inline__' or `__inline' if that's what the C compiler
    calls it, or to nothing if 'inline' is not supported under any name.  */
 #ifndef __cplusplus
-#undef inline
+#define inline @INLINE_KEYWORD@
+#endif
+
 #endif

@@ -28,6 +28,20 @@ if (HAVE_PNG)
   list (APPEND SOURCES spectrogram.c)
 endif ()
 
+# File Formats
+
+# Uncomment for bit-rot detection on linux
+#list (APPEND SOURCES coreaudio.c sndio.c sunaudio.c)
+
+list (APPEND SOURCES 
+  raw-fmt.c s1-fmt.c s2-fmt.c s3-fmt.c
+  s4-fmt.c u1-fmt.c u2-fmt.c u3-fmt.c u4-fmt.c al-fmt.c la-fmt.c ul-fmt.c
+  lu-fmt.c 8svx.c aiff-fmt.c aifc-fmt.c au.c avr.c cdr.c cvsd-fmt.c
+  dvms-fmt.c dat.c hcom.c htk.c maud.c prc.c sf.c smp.c
+  sounder.c soundtool.c sphere.c tx16w.c voc.c vox-fmt.c ima-fmt.c adpcm.c adpcm.h
+  ima_rw.c ima_rw.h wav.c wve.c xa.c nulfile.c f4-fmt.c f8-fmt.c gsrt.c
+  id3.c id3.h)
+
 # Optional formats
 
 if (HAVE_ALSA)
@@ -104,8 +118,11 @@ endif ()
 
 # Libsoxr:
 
-add_library (${PROJECT_NAME} ${LIB_TYPE} ${SOURCES})
-target_link_libraries (${PROJECT_NAME} PRIVATE ${LIBM_LIBRARIES})
+add_library ("${PROJECT_NAME}-lib" STATIC ${SOURCES})
+target_link_libraries ("${PROJECT_NAME}-lib" PRIVATE ${LIBM_LIBRARIES})
+
+add_library (${PROJECT_NAME} ${LIB_TYPE} "${PROJECT_NAME}.c")
+target_link_libraries (${PROJECT_NAME} PRIVATE "${PROJECT_NAME}-lib")
 set_target_properties (${PROJECT_NAME} PROPERTIES
   VERSION "${SO_VERSION}"
   SOVERSION ${SO_VERSION_MAJOR}
@@ -119,7 +136,7 @@ endif ()
 # Executable:
 
 add_executable ("${PROJECT_NAME}-exe" sox.c)
-target_link_libraries ("${PROJECT_NAME}-exe" ${PROJECT_NAME})
+target_link_libraries ("${PROJECT_NAME}-exe" "${PROJECT_NAME}-lib")
 
 # Installation (from build from source):
 

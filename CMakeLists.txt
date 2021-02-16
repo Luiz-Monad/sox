@@ -7,8 +7,6 @@ project (sox C)
 set (DESCRIPTION_SUMMARY
     "High quality, one-dimensional sample-rate conversion library")
 
-
-
 # Release versioning:
 
 set (PROJECT_VERSION_MAJOR 0)
@@ -57,7 +55,7 @@ include (TestBigEndian)
 # Check for system dependent features.
 
 set_system_processor ()
-test_big_endian (HAVE_BIGENDIAN)
+test_big_endian (WORDS_BIGENDIAN)
 
 check_function_exists (lrint HAVE_LRINT)
 
@@ -68,12 +66,12 @@ check_include_files (stdint.h HAVE_STDINT_H)
 check_include_files (fcntl.h HAVE_FCNTL_H)
 check_include_files (unistd.h HAVE_UNISTD_H)
 check_include_files (byteswap.h HAVE_BYTESWAP_H)
-check_include_files (sys/ioctl.h HAVE_IOCTL_H)
-check_include_files (sys/stat.h HAVE_STAT_H)
-check_include_files (sys/time.h HAVE_TIME_H)
-check_include_files (sys/timeb.h HAVE_TIMEB_H)
-check_include_files (sys/types.h HAVE_TYPES_H)
-check_include_files (sys/utsname.h HAVE_UTSNAME_H)
+check_include_files (sys/ioctl.h HAVE_SYS_IOCTL_H)
+check_include_files (sys/stat.h HAVE_SYS_STAT_H)
+check_include_files (sys/time.h HAVE_SYS_TIME_H)
+check_include_files (sys/timeb.h HAVE_SYS_TIMEB_H)
+check_include_files (sys/types.h HAVE_SYS_TYPES_H)
+check_include_files (sys/utsname.h HAVE_SYS_UTSNAME_H)
 check_include_files (termios.h HAVE_TERMIOS_H)
 check_include_files (glob.h HAVE_GLOB_H)
 check_include_files (fenv.h HAVE_FENV_H)
@@ -385,8 +383,6 @@ if (MSVC)
   endif ()
 endif ()
 
-
-
 # Build configuration:
 
 if (${BUILD_SHARED_LIBS} AND ${CMAKE_SYSTEM_NAME} STREQUAL Windows)
@@ -411,7 +407,6 @@ endif ()
 if (CMAKE_BUILD_TYPE STREQUAL "None") # As used by some distros.
   add_definitions (-DNDEBUG)
 endif ()
-
 
 # Installation configuration:
 
@@ -438,18 +433,16 @@ if (APPLE)
       "/Library/Frameworks" CACHE STRING "Directory to install frameworks to.")
 endif ()
 
-
-
 # Top-level:
 
 set (PROJECT_VERSION
-    ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}.${PROJECT_VERSION_PATCH})
+  ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}.${PROJECT_VERSION_PATCH})
 set (SO_VERSION ${SO_VERSION_MAJOR}.${SO_VERSION_MINOR}.${SO_VERSION_PATCH})
 
-# configure_file (
-#   ${PROJECT_SOURCE_DIR}/${PROJECT_NAME}-config.h.in
-#   ${PROJECT_BINARY_DIR}/${PROJECT_NAME}-config.h)
-# include_directories (${PROJECT_BINARY_DIR})
+configure_file (
+  ${PROJECT_SOURCE_DIR}/src/${PROJECT_NAME}-config.h.in
+  ${PROJECT_BINARY_DIR}/${PROJECT_NAME}-config.h)
+include_directories (${PROJECT_BINARY_DIR})
 
 if (NOT CMAKE_CROSSCOMPILING AND (BUILD_TESTS OR BUILD_LSR_TESTS))
   enable_testing ()
@@ -460,8 +453,6 @@ install (FILES
   ${CMAKE_CURRENT_SOURCE_DIR}/LICENCE
   ${CMAKE_CURRENT_SOURCE_DIR}/NEWS
   DESTINATION ${DOC_INSTALL_DIR})
-
-
 
 # Subdirectories:
 

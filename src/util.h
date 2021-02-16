@@ -20,7 +20,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <inttypes.h>
-#include "soxconfig.h"
+#include "sox-config.h"
 
 #ifdef HAVE_SYS_TYPES_H
 #include <sys/types.h> /* For off_t not found in stdio.h */
@@ -64,6 +64,7 @@
 #define fstat _fstat
 #endif
 
+#undef inline
 #define ftime _ftime
 #define inline __inline
 #define isatty _isatty
