@@ -1,3 +1,6 @@
 [submodule "flac"]
 	path = flac
 	url = https://github.com/Luiz-Monad/flac
+[submodule "ogg"]
+	path = ogg
+	url = https://github.com/Luiz-Monad/ogg
