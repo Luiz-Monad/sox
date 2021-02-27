@@ -44,7 +44,6 @@ cmake_dependent_option (BUILD_SHARED_LIBS
 
 list (APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake/Modules)
 
-include (FindPkgConfig)
 include (CheckSymbolExists)
 include (CheckFunctionExists)
 include (CheckIncludeFiles)
@@ -185,15 +184,15 @@ endif ()
 
 option (WITH_FLAC "FLAC support." ON)
 if (WITH_FLAC)
-  pkg_check_modules (FLAC flac)
+  find_package (flac)
 endif ()
-if (FLAC_FOUND)
+if (FLAC_FOUND OR FLAC_FLAC_FOUND)
   set (HAVE_FLAC ON)
 endif ()
 
 option (WITH_GSM "GSM support." OFF)
 if (WITH_GSM)
-  pkg_check_modules (GSM libgsm)
+  find_package (libgsm)
 endif ()
 if (GSM_FOUND)
   set (HAVE_GSM ON)
@@ -230,7 +229,7 @@ endif ()
 
 option (WITH_OGGVORBIS "OGGVORBIS support." OFF)
 if (WITH_OGGVORBIS)
-  pkg_check_modules (OGGVORBIS ogg)
+  find_package (ogg)
 endif ()
 if (OGGVORBIS_FOUND)
   set (HAVE_OGGVORBIS ON)
@@ -238,7 +237,7 @@ endif ()
 
 option (WITH_OPUS "OPUS support." OFF)
 if (WITH_OPUS)
-  pkg_check_modules (OPUS opus)
+  find_package (opus)
 endif ()
 if (OPUS_FOUND)
   set (HAVE_OPUS ON)
@@ -385,17 +384,6 @@ endif ()
 
 # Build configuration:
 
-if (${BUILD_SHARED_LIBS} AND ${CMAKE_SYSTEM_NAME} STREQUAL Windows)
-  # Allow exes to find dlls:
-  set (BIN ${PROJECT_BINARY_DIR}/bin/)
-  set (EXAMPLES_BIN ${BIN})
-  set (CMAKE_LIBRARY_OUTPUT_DIRECTORY ${BIN})
-  set (CMAKE_RUNTIME_OUTPUT_DIRECTORY ${BIN})
-else ()
-  set (BIN ./)
-  set (EXAMPLES_BIN ../examples/)
-endif ()
-
 set (LIB_TYPE STATIC)
 if (BUILD_SHARED_LIBS)
   set (LIB_TYPE SHARED)
@@ -409,23 +397,6 @@ if (CMAKE_BUILD_TYPE STREQUAL "None") # As used by some distros.
 endif ()
 
 # Installation configuration:
-
-if (NOT DEFINED BIN_INSTALL_DIR)
-  set (BIN_INSTALL_DIR "${CMAKE_INSTALL_PREFIX}/bin")
-endif ()
-if (NOT DEFINED LIB_INSTALL_DIR)
-  set (LIB_INSTALL_DIR "${CMAKE_INSTALL_PREFIX}/lib${LIB_SUFFIX}")
-endif ()
-if (NOT DEFINED INCLUDE_INSTALL_DIR)
-  set (INCLUDE_INSTALL_DIR "${CMAKE_INSTALL_PREFIX}/include")
-endif ()
-if (NOT DEFINED DOC_INSTALL_DIR)
-  if (UNIX)
-    set (DOC_INSTALL_DIR "${CMAKE_INSTALL_PREFIX}/share/doc/lib${PROJECT_NAME}")
-  else ()
-    set (DOC_INSTALL_DIR "${CMAKE_INSTALL_PREFIX}/doc")
-  endif ()
-endif ()
 
 if (APPLE)
   option (BUILD_FRAMEWORK "Build an OS X framework." OFF)
@@ -448,11 +419,8 @@ if (NOT CMAKE_CROSSCOMPILING AND (BUILD_TESTS OR BUILD_LSR_TESTS))
   enable_testing ()
 endif ()
 
-install (FILES
-  ${CMAKE_CURRENT_SOURCE_DIR}/README
-  ${CMAKE_CURRENT_SOURCE_DIR}/LICENCE
-  ${CMAKE_CURRENT_SOURCE_DIR}/NEWS
-  DESTINATION ${DOC_INSTALL_DIR})
+file(GLOB DOCS "README.*")
+install(FILES ${DOCS} DESTINATION ${CMAKE_INSTALL_DOCDIR}/docs)
 
 # Subdirectories:
 
@@ -467,17 +435,4 @@ if (BUILD_LSR_TESTS)
 endif ()
 if (BUILD_EXAMPLES OR BUILD_TESTS)
   add_subdirectory (examples)
-endif ()
-
-
-# Packaging:
-
-if (UNIX)
-  set (CPACK_PACKAGE_VERSION_MAJOR "${PROJECT_VERSION_MAJOR}")
-  set (CPACK_PACKAGE_VERSION_MINOR "${PROJECT_VERSION_MINOR}")
-  set (CPACK_PACKAGE_VERSION_PATCH "${PROJECT_VERSION_PATCH}")
-  set (CPACK_SOURCE_GENERATOR "TXZ")
-  set (CPACK_SOURCE_IGNORE_FILES
-      "dist;/lsr-tests/;/Debug.*/;/Release.*/;\\\\.swp$;\\\\.git.*;/\\\\.git/")
-  include (CPack)
 endif ()
