@@ -12,6 +12,7 @@ $msbuild = & $vswhere -latest -requires Microsoft.Component.MSBuild -find "MSBui
 $cmake = & $vswhere -latest -requires Microsoft.VisualStudio.Component.VC.CMake.Project -find "Common7\IDE\CommonExtensions\Microsoft\CMake\**\bin\cmake.exe"
 
 # make
+
 & $cmake . -B $build "-DOgg_DIR=$ogg" "-Dflac_DIR=$flac"
 
 # build
@@ -19,6 +20,7 @@ $cmake = & $vswhere -latest -requires Microsoft.VisualStudio.Component.VC.CMake.
 # & $cmake --build $build --target install "-DCMAKE_BUILD_TYPE=Release" "-DCMAKE_INSTALL_PREFIX=$bin"
 & $msbuild $build/sox.sln -maxCpuCount:16 -p:Configuration=Release -detailedSummary
 & $cmake --install $build --prefix $bin
+cp $bin/bin/sox-exe.exe ../sox.exe
 
 # done
 Pop-Location
